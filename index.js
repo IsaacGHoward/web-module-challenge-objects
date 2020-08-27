@@ -7,12 +7,14 @@ const breakfastBurrito = {name: "Breakfast Burrito", price: 16, category:"Breakf
 /* Task 1a: write a function to return more menu items with the same format as the items above. */
 
 function createMenuItem(name, cost, category){
+  return({name: name, price:cost, category:category })
     /* Code here */
 }
 
 /* Task 1b: use your function to create 3 more menu items. You may add any items to the menu that you'd like */
-
-
+const sandwich = createMenuItem('Sandwich', 7, "Lunch");
+const eggs = createMenuItem('Eggs', 5, "Breakfast");
+const soda = createMenuItem('Soda', 1, "Drinks");
 
 /* Task 2: You're having a lunch special! 25% off for teachers and students, 10% off for everyone else. Add a method to your burger object that automatically calculates price given a string as a parameter. 
 
@@ -23,8 +25,13 @@ Your method should accept:
 and should return a number. 
 
 For example, burger.discount("teacher") would return 13.5 and burger.discount("public") would return 16.2*/
-
-
+burger.discount = function(who){
+  if(who === "teacher" || who === "student")
+    return(this.price * .75)
+  else
+    return(this.price * .9)
+}
+console.log("Task 2 : Teacher Discount " + burger.discount("teacher"));
 
 ///////////////Reviews (MVP)///////////////////
 
@@ -39,7 +46,7 @@ const reviews = [{name: "Daniela", rating: 5, feedback:"Beautiful atmosphere and
 ]
 
 /* Task 3: Console.log just Julius' feedback */
-
+console.log("Task 3 : " + reviews[5].feedback);
 
 /* Task 4: Add a new rating with your (fictitious) opinions of the restaurant in the same format as the reviews above. */
 
