@@ -49,9 +49,12 @@ const reviews = [{name: "Daniela", rating: 5, feedback:"Beautiful atmosphere and
 console.log("Task 3 : " + reviews[5].feedback);
 
 /* Task 4: Add a new rating with your (fictitious) opinions of the restaurant in the same format as the reviews above. */
+reviews.push({name: "Isaac", rating: 2.5, feedback:"I have no strong feelings one way or the other"});
+console.log("Task 4 : My Review : " + reviews[8].feedback);
 
-
-/* Task 5: Add the following feedback to Reyna's rating - "this place is chill with really cool people, great for getting work done on weekdays"
+/* Task 5: Add the following feedback to Reyna's rating - "this place is chill with really cool people, great for getting work done on weekdays"*/
+reviews[7].feedback = "this place is chill with really cool people, great for getting work done on weekdays";
+console.log("Task 5 : " + reviews[7].feedback);
 
 /*  Task 6: Write a function to return a review based on the index of the review in the array.
 
@@ -66,9 +69,10 @@ and should return a string in the format `{name} gave the restaurant a {rating},
  * it will return `Daniela gave the restaurant a 5 star review and their feedback was: Beautiful atmosphere and wonderful vegan options!`
 */
 function getReviewByIndex(reviews, index) {
+     return(`${reviews[index].name} gave the restaurant a ${reviews[index].rating} star review and their feedback was : ${reviews[index].feedback}`)
     /* code here */
   }
-  
+console.log("Task 6 : " + getReviewByIndex(reviews,0));
 
 /* Task 7: Write a function to get information about the most recent review called `getLastReview`
 
@@ -79,10 +83,11 @@ and should return a string in the format `name} gave the restaurant a {rating}, 
 
 For example, if getLastReview is invoked passing the reviews array it will return `Reyna gave the restaurant a 3.5 star review and their feedback was: "this place is chill with really cool people, great for getting work done on weekdays"`.
 */
-function getLastReview(/* code here */) {
+function getLastReview(reviews) {
+  return(getReviewByIndex(reviews, reviews.length-1));
     /* code here */
   } 
-
+console.log("Task 7 : " + getLastReview(reviews));
 
 ///////////////🍔☕️🍽 STRETCH🍔☕️🍽////////////////////
 
@@ -139,7 +144,8 @@ The returned object should have the following characteristics:
 */
 
 
-function carMaker(/* code here */) {
-    /* code here */
-    
+function carMaker(odometer) {
+    return({odometer: odometer, drive: function(distance){return(this.odometer+=distance)}});
 }
+const car1 = carMaker(1000);
+console.log("STRETCH 3 : " + car1.drive(10));
